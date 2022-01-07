@@ -7,7 +7,9 @@ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 if (mysqli_connect_error()) {
     $result = "connection error";
 } else {
-    $result = "connection successful.";
+    $sql = "SELECT * FROM article ORDER BY published_at;";
+    $response = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
 }
 
 ?>
@@ -24,7 +26,7 @@ if (mysqli_connect_error()) {
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php echo $result; ?>
+    <?php var_dump($result); ?>
     <script src="./js/script.js"></script>
 </body>
 </html>
