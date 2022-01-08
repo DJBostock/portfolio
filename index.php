@@ -26,7 +26,12 @@ if (mysqli_connect_error()) {
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php var_dump($result); ?>
+    <dl>
+        <?php foreach ($result as $article): ?>
+            <dt><?= $article['title']; ?></dt>
+            <dd><?= $article['content']; ?></dd>
+        <?php endforeach; ?>
+    </dl>
     <script src="./js/script.js"></script>
 </body>
 </html>
