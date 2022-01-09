@@ -5,7 +5,8 @@ include("./includes/db_credentials.php");
 $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 if (mysqli_connect_error()) {
-    $result = "connection error";
+    echo "connection error";
+    exit;
 } else {
     $sql = "SELECT * FROM article ORDER BY published_at;";
     $response = mysqli_query($conn, $sql);
@@ -26,12 +27,17 @@ if (mysqli_connect_error()) {
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <dl>
-        <?php foreach ($result as $article): ?>
-            <dt><?= $article['title']; ?></dt>
-            <dd><?= $article['content']; ?></dd>
-        <?php endforeach; ?>
-    </dl>
+    <?php if (empty($result)): ?>
+        <p>No articles found</p>
+    <?php else: ?>
+        <dl>
+            <?php foreach ($result as $article): ?>
+                <dt><?= $article['title']; ?></dt>
+                <dd><?= $article['content']; ?></dd>
+            <?php endforeach; ?>
+        </dl>
+    <?php endif; ?>
+    
     <script src="./js/script.js"></script>
 </body>
 </html>
