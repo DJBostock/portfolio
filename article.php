@@ -6,9 +6,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     $id = 0;
 }
 
-include("./includes/db_credentials.php");
-
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+include("./includes/db_connection.php");
 
 if (mysqli_connect_error()) {
     echo "connection error";
