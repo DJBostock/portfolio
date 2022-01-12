@@ -30,7 +30,7 @@ if (mysqli_connect_error()) {
     <?php else: ?>
         <dl>
             <?php foreach ($result as $article): ?>
-                <dt><?= $article['title']; ?></dt>
+                <dt><a href="article.php?id=<?= $article['id']; ?>"><?= $article['title']; ?></a></dt>
                 <dd><?= $article['content']; ?></dd>
             <?php endforeach; ?>
         </dl>
