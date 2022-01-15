@@ -1,3 +1,10 @@
+:root {
+	--off-white: #f9f7f7;
+	--light-blue: #dbe2ef;
+	--medium-blue: #3f72af;
+	--dark-blue: #112d4e;
+}
+
 body {
 	background-color: whitesmoke;
 }
