@@ -1,6 +1,6 @@
 <?php
 
-$title = "Home";
+$title = "Blog";
 
 include("./includes/db_connection.php");
 
