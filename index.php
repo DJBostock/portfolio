@@ -13,7 +13,9 @@ $title = "Home";
 </head>
 
 <body>
-    &nbsp;    
+    <nav>
+        <?php include("./includes/nav.php"); ?>
+    </nav>
 </body>
 
 </html>

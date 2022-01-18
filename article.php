@@ -27,6 +27,9 @@ $title = $result['title'];
     <?php include("./includes/head.php"); ?>
 </head>
 <body>
+    <nav>
+        <?php include("./includes/nav.php"); ?>
+    </nav>
     <?php if ($result === null): ?>
         <p>Article not found.</p>
     <?php else: ?>

@@ -21,6 +21,9 @@ if (mysqli_connect_error()) {
     <?php include("./includes/head.php"); ?>
 </head>
 <body>
+    <nav>
+        <?php include("./includes/nav.php"); ?>
+    </nav>
     <?php if (empty($result)): ?>
         <p>No articles found</p>
     <?php else: ?>
