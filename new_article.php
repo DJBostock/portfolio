@@ -6,7 +6,13 @@
 <body>
     <nav>
         <?php include("./includes/nav.php"); ?>
-    </nav>    
+    </nav>
+
+    <form>
+        <input name="search" />
+        <button>Send</button>
+    </form>
+    
     <script src="./js/script.js"></script>
 </body>
 </html>
