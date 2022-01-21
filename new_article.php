@@ -1,3 +1,9 @@
+<?php
+    if(isset($_GET['search'])) {
+        $test = "form submitted.";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +13,10 @@
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
+
+    <?php if(isset($test)): ?>
+        <p><?= $test; ?></p>
+    <?php endif; ?>
 
     <form>
         <input name="search" />
