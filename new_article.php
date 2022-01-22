@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['search'])) {
-        $test = "form submitted.";
+        $test = $_GET['search'];
     }
 ?>
 
@@ -15,7 +15,7 @@
     </nav>
 
     <?php if(isset($test)): ?>
-        <p><?= $test; ?></p>
+        <p><?= $test ?></p>
     <?php endif; ?>
 
     <form>
