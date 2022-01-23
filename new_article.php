@@ -1,6 +1,6 @@
 <?php
-    if(isset($_GET['search'])) {
-        $test = $_GET['search'];
+    if(isset($_POST['search'])) {
+        $test = $_POST['search'];
     }
 ?>
 
@@ -18,7 +18,7 @@
         <p><?= $test ?></p>
     <?php endif; ?>
 
-    <form>
+    <form method="post">
         <input name="search" />
         <button>Send</button>
     </form>
