@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['search'])) {
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         $test = $_POST['search'];
     }
 ?>
