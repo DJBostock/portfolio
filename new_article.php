@@ -1,6 +1,7 @@
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $test = $_POST['search'];
+        $form_title = $_POST['title'];
+        $form_content = $_POST['content'];
     }
 ?>
 
@@ -14,13 +15,21 @@
         <?php include("./includes/nav.php"); ?>
     </nav>
 
-    <?php if(isset($test)): ?>
-        <p><?= $test ?></p>
+    <?php if(isset($form_title)): ?>
+        <p><?= $form_title ?></p>
+        <p><?= $form_content ?></p>
     <?php endif; ?>
 
     <form method="post">
-        <input name="search" />
-        <button>Send</button>
+        <div>
+            <input name="title" />
+        </div>
+        <div>
+            <textarea name="content" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <button>Send</button>
+        </div>
     </form>
     
     <script src="./js/script.js"></script>
