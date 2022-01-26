@@ -13,6 +13,10 @@ $title = "Home";
 </head>
 
 <body>
+    <header>
+        <?php include("./includes/header.php"); ?>
+    </header>
+
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
