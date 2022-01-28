@@ -20,6 +20,12 @@ $title = "Home";
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
+
+    <footer>
+        <?php include("./includes/footer.php"); ?>
+    </footer>
+
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

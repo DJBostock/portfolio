@@ -30,7 +30,7 @@ $title = $result['title'];
     <header>
         <?php include("./includes/header.php"); ?>
     </header>
-    
+
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
@@ -41,6 +41,10 @@ $title = $result['title'];
         <br>
         <?= $result['content']; ?>
     <?php endif; ?>
+
+    <footer>
+        <?php include("./includes/footer.php"); ?>
+    </footer>
     
     <script src="./js/script.js"></script>
 </body>

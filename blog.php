@@ -38,6 +38,10 @@ if (mysqli_connect_error()) {
             <?php endforeach; ?>
         </dl>
     <?php endif; ?>
+
+    <footer>
+        <?php include("./includes/footer.php"); ?>
+    </footer>
     
     <script src="./js/script.js"></script>
 </body>
