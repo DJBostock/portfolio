@@ -9,3 +9,7 @@ body {
 	background-color: var(--off-white);
 	color: var(--dark-blue);
 }
+
+h1 {
+	text-align: center;
+}
