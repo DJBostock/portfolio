@@ -26,10 +26,12 @@
 
     <form method="post">
         <div>
-            <input name="title" />
+            <label for="title">Title:</label>
+            <input name="title" id="title" />
         </div>
         <div>
-            <textarea name="content" cols="30" rows="10"></textarea>
+            <label for="content">Content:</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
         </div>
         <div>
             <button>Send</button>
