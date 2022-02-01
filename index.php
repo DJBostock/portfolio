@@ -21,6 +21,10 @@ $title = "Home";
         <?php include("./includes/nav.php"); ?>
     </nav>
 
+    <article>
+        <p>Welcome to my page. This is primarily a sandbox for me to try stuff out as I learn about it.</p>
+    </article>
+
     <footer>
         <?php include("./includes/footer.php"); ?>
     </footer>
