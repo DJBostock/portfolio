@@ -9,17 +9,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = new DateTimeImmutable();
     $timestamp = date_format($date, 'Y-m-d H:i:s');
 
-    $values = $form_title . "', '" . $form_content . "', '" . $timestamp;
+    $sql = "INSERT INTO article (title, content, published_at) VALUES (?, ?, ?)";
 
-    $sql = "INSERT INTO article (title, content, published_at) VALUES ('" . $values . "')";
+    $stmt = mysqli_prepare($conn, $sql);
 
-    $results = mysqli_query($conn, $sql);
-
-    if ($results === false) {
+    if ($stmt === false) {
         echo mysqli_error($conn);
     } else {
-        $id = mysqli_insert_id($conn);
-        echo "Inserted record with ID: $id";
+        mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
+        if (mysqli_stmt_execute($stmt)) {
+            $id = mysqli_insert_id($conn);
+            echo "Inserted record with ID: $id";    
+        } else {
+            echo mysqli_stmt_error($stmt);
+        }
     }
 }
 
@@ -38,14 +41,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
-
-    <?php if(isset($form_title)): ?>
-        <p><?= $form_title ?></p>
-        <p><?= $form_content ?></p>
-        <p><?= $timestamp ?></p>
-        <p><?= $values ?></p>
-        <p><?= $sql ?></p>
-    <?php endif; ?>
 
     <form method="post">
         <div>
