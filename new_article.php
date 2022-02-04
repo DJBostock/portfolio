@@ -3,6 +3,7 @@
 include("./includes/db_connection.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $conn = getDB();
     $form_title = $_POST['title'];
     $form_content = $_POST['content'];
 

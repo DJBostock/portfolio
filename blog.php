@@ -4,14 +4,10 @@ $title = "Blog";
 
 include("./includes/db_connection.php");
 
-if (mysqli_connect_error()) {
-    echo "connection error";
-    exit;
-} else {
-    $sql = "SELECT * FROM article ORDER BY published_at;";
-    $response = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
-}
+$conn = getDB();
+$sql = "SELECT * FROM article ORDER BY published_at;";
+$response = mysqli_query($conn, $sql);
+$result = mysqli_fetch_all($response, MYSQLI_ASSOC);
 
 ?>
 
