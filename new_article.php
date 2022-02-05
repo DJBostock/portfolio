@@ -3,28 +3,43 @@
 include("./includes/db_connection.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = getDB();
     $form_title = $_POST['title'];
     $form_content = $_POST['content'];
 
-    $date = new DateTimeImmutable();
-    $timestamp = date_format($date, 'Y-m-d H:i:s');
+    $errors = [];
 
-    $sql = "INSERT INTO article (title, content, published_at) VALUES (?, ?, ?)";
+    if ($form_title == '') {
+        $errors[] = 'Title is required.';
+    }
 
-    $stmt = mysqli_prepare($conn, $sql);
+    if ($form_content == '') {
+        $errors[] = 'Content is required.';
+    }
 
-    if ($stmt === false) {
-        echo mysqli_error($conn);
-    } else {
-        mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
-        if (mysqli_stmt_execute($stmt)) {
-            $id = mysqli_insert_id($conn);
-            echo "Inserted record with ID: $id";    
+    if (empty($errors)) {
+        $conn = getDB();
+
+        $date = new DateTimeImmutable();
+        $timestamp = date_format($date, 'Y-m-d H:i:s');
+    
+        $sql = "INSERT INTO article (title, content, published_at) VALUES (?, ?, ?)";
+    
+        $stmt = mysqli_prepare($conn, $sql);
+    
+        if ($stmt === false) {
+            echo mysqli_error($conn);
         } else {
-            echo mysqli_stmt_error($stmt);
+            mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
+            if (mysqli_stmt_execute($stmt)) {
+                $id = mysqli_insert_id($conn);
+                echo "Inserted record with ID: $id";    
+            } else {
+                echo mysqli_stmt_error($stmt);
+            }
         }
     }
+
+
 }
 
 ?>
@@ -43,14 +58,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php include("./includes/nav.php"); ?>
     </nav>
 
+    <article>
+        <?php if (!empty($errors)): ?>
+            <ul>
+            <?php foreach ($errors as $error): ?>
+                <li><?= $error; ?></li>
+            <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </article>
+
     <form method="post">
         <div>
             <label for="title">Title:</label>
-            <input name="title" id="title" />
+            <?php if($form_title == ''): ?>
+                <input name="title" id="title" />
+            <?php else: ?>
+                <input name="title" id="title" value="<?= $form_title; ?>" />
+            <?php endif; ?>
         </div>
         <div>
             <label for="content">Content:</label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
         </div>
         <div>
             <button>Send</button>
