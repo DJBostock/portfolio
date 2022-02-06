@@ -32,7 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
-                echo "Inserted record with ID: $id";    
+                echo "Inserted record with ID: $id";
+                $form_title = '';
+                $form_content = '';  
             } else {
                 echo mysqli_stmt_error($stmt);
             }
@@ -79,7 +81,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div>
             <label for="content">Content:</label>
-            <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
+            <?php if($form_content == ''): ?>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <?php else: ?>
+                <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
+            <?php endif; ?>
         </div>
         <div>
             <button>Send</button>
