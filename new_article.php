@@ -40,9 +40,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-
-
 }
+
+$title = "New Article";
 
 ?>
 
@@ -68,29 +68,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php endforeach; ?>
             </ul>
         <?php endif; ?>
+
+        <form method="post">
+            <div>
+                <label for="title">Title:</label>
+                <?php if($form_title == ''): ?>
+                    <input name="title" id="title" />
+                <?php else: ?>
+                    <input name="title" id="title" value="<?= $form_title; ?>" />
+                <?php endif; ?>
+            </div>
+            <div>
+                <label for="content">Content:</label>
+                <?php if($form_content == ''): ?>
+                    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                <?php else: ?>
+                    <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
+                <?php endif; ?>
+            </div>
+            <div>
+                <button>Send</button>
+            </div>
+        </form>
+
     </article>
 
-    <form method="post">
-        <div>
-            <label for="title">Title:</label>
-            <?php if($form_title == ''): ?>
-                <input name="title" id="title" />
-            <?php else: ?>
-                <input name="title" id="title" value="<?= $form_title; ?>" />
-            <?php endif; ?>
-        </div>
-        <div>
-            <label for="content">Content:</label>
-            <?php if($form_content == ''): ?>
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            <?php else: ?>
-                <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
-            <?php endif; ?>
-        </div>
-        <div>
-            <button>Send</button>
-        </div>
-    </form>
 
     <footer>
         <?php include("./includes/footer.php"); ?>

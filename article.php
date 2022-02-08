@@ -28,13 +28,16 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
-    <?php if ($result === null): ?>
-        <p>Article not found.</p>
-    <?php else: ?>
-        <?= $result['title']; ?>
-        <br>
-        <?= $result['content']; ?>
-    <?php endif; ?>
+
+    <article>
+        <?php if ($result === null): ?>
+            <p>Article not found.</p>
+        <?php else: ?>
+            <?= $result['title']; ?>
+            <br>
+            <?= $result['content']; ?>
+        <?php endif; ?>
+    </article>
 
     <footer>
         <?php include("./includes/footer.php"); ?>

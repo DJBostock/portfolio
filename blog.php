@@ -24,16 +24,19 @@ $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
     <nav>
         <?php include("./includes/nav.php"); ?>
     </nav>
-    <?php if (empty($result)): ?>
-        <p>No articles found</p>
-    <?php else: ?>
-        <dl>
-            <?php foreach ($result as $article): ?>
-                <dt><a href="article.php?id=<?= $article['id']; ?>"><?= $article['title']; ?></a></dt>
-                <dd><?= $article['content']; ?></dd>
-            <?php endforeach; ?>
-        </dl>
-    <?php endif; ?>
+
+    <article>
+        <?php if (empty($result)): ?>
+            <p>No articles found</p>
+        <?php else: ?>
+            <dl>
+                <?php foreach ($result as $article): ?>
+                    <dt><a href="article.php?id=<?= $article['id']; ?>"><?= $article['title']; ?></a></dt>
+                    <dd><?= $article['content']; ?></dd>
+                <?php endforeach; ?>
+            </dl>
+        <?php endif; ?>
+    </article>
 
     <footer>
         <?php include("./includes/footer.php"); ?>
