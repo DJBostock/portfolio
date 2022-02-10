@@ -33,9 +33,9 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         <?php if ($result === null): ?>
             <p>Article not found.</p>
         <?php else: ?>
-            <?= $result['title']; ?>
+            <?= htmlspecialchars($result['title']); ?>
             <br>
-            <?= $result['content']; ?>
+            <?= htmlspecialchars($result['content']); ?>
         <?php endif; ?>
     </article>
 

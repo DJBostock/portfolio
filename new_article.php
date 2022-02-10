@@ -75,7 +75,7 @@ $title = "New Article";
                 <?php if($form_title == ''): ?>
                     <input name="title" id="title" />
                 <?php else: ?>
-                    <input name="title" id="title" value="<?= $form_title; ?>" />
+                    <input name="title" id="title" value="<?= htmlspecialchars($form_title); ?>" />
                 <?php endif; ?>
             </div>
             <div>
@@ -83,7 +83,7 @@ $title = "New Article";
                 <?php if($form_content == ''): ?>
                     <textarea name="content" id="content" cols="30" rows="10"></textarea>
                 <?php else: ?>
-                    <textarea name="content" id="content" cols="30" rows="10"><?= $form_content; ?></textarea>
+                    <textarea name="content" id="content" cols="30" rows="10"><?= htmlspecialchars($form_content); ?></textarea>
                 <?php endif; ?>
             </div>
             <div>
