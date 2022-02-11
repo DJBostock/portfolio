@@ -32,9 +32,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
-                echo "Inserted record with ID: $id";
-                $form_title = '';
-                $form_content = '';  
+                header("Location: article.php?id=$id");
+                exit;
             } else {
                 echo mysqli_stmt_error($stmt);
             }
