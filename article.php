@@ -1,15 +1,15 @@
 <?php
 
-if(isset($_GET['id']) && is_numeric($_GET['id'])) {
-    $id = $_GET['id'];
+if(isset($_GET['id'])) {
     include("./includes/db_connection.php");
+    include("./includes/article_functions.php");
+    $id = $_GET['id'];
     $conn = getDB();
-    $sql = "SELECT * FROM article WHERE id={$id};";
-    $response = mysqli_query($conn, $sql);
-    $result = mysqli_fetch_assoc($response);
+    $result = getArticle($conn, $id);
     $title = $result['title'];
 } else {
     $id = 0;
+    $result = null;
     $title = "Article not found.";
 }
 
