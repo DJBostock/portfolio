@@ -24,14 +24,17 @@ body {
 }
 
 h1 {
-	margin: 10px 0;
+	margin: 5px 0;
 	text-align: center;
 }
 
-header {
+header,
+nav {
 	background-color: var(--light-blue);
 	border: 2px solid var(--dark-blue);
 	border-radius: 10px;
+	margin: 5px;
+	padding: 10px;
 }
 
 .nav_ul {
