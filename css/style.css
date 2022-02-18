@@ -23,11 +23,7 @@ body {
 	padding: 10px;
 }
 
-h1 {
-	margin: 5px 0;
-	text-align: center;
-}
-
+footer,
 header,
 nav {
 	background-color: var(--light-blue);
@@ -35,6 +31,11 @@ nav {
 	border-radius: 10px;
 	margin: 5px;
 	padding: 10px;
+}
+
+h1 {
+	margin: 5px 0;
+	text-align: center;
 }
 
 .nav_ul {
