@@ -1,3 +1,3 @@
 <div>
-    &copy; DJ Bostock
+    <a href="mailto:douglasjbostock@gmail.com">&copy; DJ Bostock</a>
 </div>
