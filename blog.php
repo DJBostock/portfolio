@@ -5,7 +5,7 @@ $title = "Blog";
 include("./includes/db_connection.php");
 
 $conn = getDB();
-$sql = "SELECT * FROM article ORDER BY published_at;";
+$sql = "SELECT * FROM article ORDER BY published_at DESC;";
 $response = mysqli_query($conn, $sql);
 $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
 
