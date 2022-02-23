@@ -1,6 +1,7 @@
 <?php
 
 include("./includes/db_connection.php");
+include("./includes/article_functions.php");
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $form_title = $_POST['title'];
@@ -32,15 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "sss", $form_title, $form_content, $timestamp);
             if (mysqli_stmt_execute($stmt)) {
                 $id = mysqli_insert_id($conn);
-
-                if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-                    $protocol = 'https';
-                } else {
-                    $protocol = 'http';
-                }
-
-                header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . "/article.php?id=$id");
-                exit;
+                redirect("/article.php?id=$id");
             } else {
                 echo mysqli_stmt_error($stmt);
             }
