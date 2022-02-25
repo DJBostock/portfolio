@@ -39,6 +39,12 @@ if(isset($_GET['id'])) {
         <?php endif; ?>
     </article>
 
+    <section>
+        <ul>
+            <li><a href="edit_article.php?id=<?= $id; ?>">Edit Article</a></li>
+        </ul>
+    </section>
+
     <footer>
         <?php include("./includes/footer.php"); ?>
     </footer>
