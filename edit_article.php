@@ -42,16 +42,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
         $stmt = mysqli_prepare($conn, $sql);
     
-        if ($stmt === false) {
-            echo mysqli_error($conn);
-        } else {
+        if ($stmt !== false) {
             mysqli_stmt_bind_param($stmt, "ssss", $form_title, $form_content, $timestamp, $form_id);
-            if (mysqli_stmt_execute($stmt)) {
-                redirect("/article.php?id=$id");
-            } else {
-                echo mysqli_stmt_error($stmt);
-            }
+            mysqli_stmt_execute($stmt);
         }
+
+        redirect("/article.php?id=$id");
     }
 }
 
