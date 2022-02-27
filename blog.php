@@ -38,6 +38,12 @@ $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
         <?php endif; ?>
     </article>
 
+    <section>
+        <ul>
+            <li><a href="new_article.php?id=<?= $id; ?>">New Article</a></li>
+        </ul>
+    </section>
+
     <footer>
         <?php include("./includes/footer.php"); ?>
     </footer>
