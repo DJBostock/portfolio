@@ -40,7 +40,7 @@ $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
 
     <section>
         <ul>
-            <li><a href="new_article.php?id=<?= $id; ?>">New Article</a></li>
+            <li><a href="new_article.php">New Article</a></li>
         </ul>
     </section>
 
