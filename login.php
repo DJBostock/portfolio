@@ -1,6 +1,6 @@
 <?php
 
-$title = "About Me";
+$title = "Login";
 
 ?>
 
