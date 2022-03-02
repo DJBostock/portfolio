@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 if(isset($_GET['id'])) {
     include("./includes/db_connection.php");
     include("./includes/article_functions.php");
@@ -39,12 +41,14 @@ if(isset($_GET['id'])) {
         <?php endif; ?>
     </article>
 
+    <?php if($_SESSION['is_logged_in']): ?>
     <section>
         <ul>
             <li><a href="edit_article.php?id=<?= $id; ?>">Edit Article</a></li>
             <li><a href="delete_article.php?id=<?= $id; ?>">Delete Article</a></li>
         </ul>
     </section>
+    <?php endif; ?>
 
     <footer>
         <?php include("./includes/footer.php"); ?>

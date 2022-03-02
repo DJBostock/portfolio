@@ -1,6 +1,13 @@
 <?php
 
+session_start();
+
 include("./includes/article_functions.php");
+
+if($_SESSION['is_logged_in'] !== true) {
+    redirect("/blog.php");
+    exit;
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     include("./includes/db_connection.php");

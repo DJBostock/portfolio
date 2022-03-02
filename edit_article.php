@@ -1,8 +1,16 @@
 <?php
 
+session_start();
+
+include("./includes/article_functions.php");
+
+if($_SESSION['is_logged_in'] !== true) {
+    redirect("/blog.php");
+    exit;
+}
+
 if(isset($_GET['id'])) {
     include("./includes/db_connection.php");
-    include("./includes/article_functions.php");
     $id = $_GET['id'];
     $conn = getDB();
     $result = getArticle($conn, $id);

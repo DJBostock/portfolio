@@ -1,7 +1,14 @@
 <?php
 
+session_start();
+
 include("./includes/db_connection.php");
 include("./includes/article_functions.php");
+
+if($_SESSION['is_logged_in'] !== true) {
+    redirect("/blog.php");
+    exit;
+}
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $form_title = $_POST['title'];

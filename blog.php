@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $title = "Blog";
 
 include("./includes/db_connection.php");
@@ -38,11 +40,13 @@ $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
         <?php endif; ?>
     </article>
 
+    <?php if($_SESSION['is_logged_in']): ?>
     <section>
         <ul>
             <li><a href="new_article.php">New Article</a></li>
         </ul>
     </section>
+    <?php endif; ?>
 
     <footer>
         <?php include("./includes/footer.php"); ?>
