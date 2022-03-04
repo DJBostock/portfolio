@@ -33,8 +33,10 @@ $result = mysqli_fetch_all($response, MYSQLI_ASSOC);
         <?php else: ?>
             <dl>
                 <?php foreach ($result as $article): ?>
-                    <dt><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></dt>
-                    <dd><?= htmlspecialchars($article['content']); ?></dd>
+                    <div class="blog_article">
+                        <dt><a href="article.php?id=<?= $article['id']; ?>"><?= htmlspecialchars($article['title']); ?></a></dt>
+                        <dd><?= htmlspecialchars($article['content']); ?></dd>
+                    </div>
                 <?php endforeach; ?>
             </dl>
         <?php endif; ?>

@@ -45,6 +45,14 @@ h1 {
 	text-align: center;
 }
 
+.blog_article:nth-of-type(odd) {
+	background-color: var(--light-blue);
+}
+
+.blog_article {
+	padding: 10px 5px;
+}
+
 .nav_ul {
 	align-items: center;
 	display: flex;
