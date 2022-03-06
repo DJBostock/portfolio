@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if ($username === $my_username && $password === $my_password) {
+        session_regenerate_id(true);
         $_SESSION['is_logged_in'] = true;
         redirect("/blog.php");
         exit;
