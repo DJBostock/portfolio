@@ -8,9 +8,11 @@
 }
 
 article {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	justify-content: space-around;
 }
 
 body {
