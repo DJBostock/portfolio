@@ -37,3 +37,42 @@ body {
 	width: 100vw;
 	z-index: -1;
 }
+
+.quote-container {
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 10px;
+	box-shadow: 0 10px 10px 10px rgba(0, 0, 0, 0.2);
+	margin: 0 auto;
+	max-width: 900px;
+	padding: 20px 30px;
+	width: auto;
+}
+
+.quote-text {
+	font-size: 2.75rem;
+}
+
+.long-quote {
+	font-size: 2rem;
+}
+
+.fa-quote-left {
+	font-size: 4rem;
+}
+
+.quote-author {
+	margin-top: 15px;
+	font-size: 2rem;
+	font-weight: 400;
+	font-style: italic;
+}
+
+@media screen and (max-width: 1000px) {
+	.quote-container {
+		margin: auto 10px;
+	}
+
+	.quote-text {
+		font-size: 2.5rem;
+	}
+}
